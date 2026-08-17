@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowRight, FileUp } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { GlassCard, SectionHeader } from "@/components/sections";
 import { company, services } from "@/lib/site-data";
@@ -22,7 +22,7 @@ export default function StartProjectPage() {
           description="Use this form for project briefs, MVPs, business platforms, AI workflows, fintech products, IoT systems, and digital transformation planning."
         />
         <GlassCard className="p-7 sm:p-9">
-          <form action={company.formspreeEndpoint} className="grid gap-6" encType="multipart/form-data" method="POST">
+          <form action={company.formspreeEndpoint} className="grid gap-6" method="POST">
             <input name="_subject" type="hidden" value="New project request from Solven Tech website" />
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="grid gap-2 text-sm font-medium text-silver-300">
@@ -74,11 +74,8 @@ export default function StartProjectPage() {
               <textarea className="form-field min-h-40 resize-none" name="project_goals" required />
             </label>
             <label className="grid gap-2 text-sm font-medium text-silver-300">
-              Attach brief or supporting document
-              <span className="flex items-center gap-3 rounded-md border border-dashed border-silver-300/22 bg-navy-950/70 px-4 py-4 text-silver-400">
-                <FileUp className="h-5 w-5 text-accent-300" />
-                <input className="w-full text-sm" name="attachment" type="file" />
-              </span>
+              Brief link or extra notes
+              <textarea className="form-field min-h-28 resize-none" name="brief_notes" />
             </label>
             <button className="btn-primary" type="submit">
               Submit Project Request <ArrowRight className="h-4 w-4" />
